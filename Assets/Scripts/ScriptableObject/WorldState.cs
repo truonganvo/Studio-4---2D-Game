@@ -6,5 +6,9 @@ using UnityEngine;
 public class WorldState : ScriptableObject
 {
     public bool haveClotheOn;
+
+    [Header("Personal Key")]
+    //Use personal car
     public bool haveKey;
+    public bool getOnCar = false;
 }

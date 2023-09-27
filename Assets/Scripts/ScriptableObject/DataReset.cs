@@ -10,5 +10,6 @@ public class DataReset : MonoBehaviour
     {
         worldState.haveClotheOn = false;
         worldState.haveKey = false;
+        worldState.getOnCar = false;
     }
 }
