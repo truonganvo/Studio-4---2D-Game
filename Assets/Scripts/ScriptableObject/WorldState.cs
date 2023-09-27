@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class WorldState : ScriptableObject
 {
+    [Header("Personal Key")]
+    public int amountOfWorks = 0;
+
+    [Header("Uniform")]
     public bool haveClotheOn;
 
     [Header("Personal Key")]
