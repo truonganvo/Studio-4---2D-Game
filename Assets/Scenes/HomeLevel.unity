@@ -947,6 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386880053}
   - component: {fileID: 386880054}
+  - component: {fileID: 386880055}
   m_Layer: 8
   m_Name: Bed
   m_TagString: Untagged
@@ -1022,6 +1023,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &386880055
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386880052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012251824, y: -0.0048063397}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.60029685, y: 0.53601927}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 1
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6206704, y: 0.59256893}
+  m_EdgeRadius: 0
 --- !u!1 &390633478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: 0
   SceneName: OutsideLevel
+  changeToDifferentPosition: 0
+  cameraGameObject: {fileID: 0}
+  camPosition: {fileID: 0}
 --- !u!1 &1251447316
 GameObject:
   m_ObjectHideFlags: 0
