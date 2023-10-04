@@ -15,4 +15,10 @@ public class WorldState : ScriptableObject
     //Use personal car
     public bool haveKey;
     public bool getOnCar = false;
+
+    [Header("Food")]
+    public bool haveBreakfast;
+
+    [Header("Wallet")]
+    public bool haveWallet;
 }

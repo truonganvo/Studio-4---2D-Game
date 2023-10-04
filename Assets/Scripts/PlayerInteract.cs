@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInteract : MonoBehaviour
 {
-    [SerializeField] bool isInteractable;
+    public bool isInteractable;
     public bool hasPickUp;
 
     private void Update()

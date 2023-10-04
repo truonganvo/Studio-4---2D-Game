@@ -8,11 +8,20 @@ public class ChangingScene : MonoBehaviour
     [SerializeField] bool nextScene;
     [SerializeField] string SceneName;
 
+    //Check if I want to change the camera position instead move to different scene
+    public bool changeToDifferentPosition;
+    [SerializeField] Camera cameraGameObject;
+    [SerializeField] Transform camPosition;
+
     private void Update()
     {
-        if (nextScene && Input.GetKeyDown(KeyCode.E))
+        if (nextScene && Input.GetKeyDown(KeyCode.E) && !changeToDifferentPosition)
         {
             ChangeDifferentScene();
+        }
+        else if (nextScene && Input.GetKeyDown(KeyCode.E) && changeToDifferentPosition)
+        {
+            ChangeCameraToDifferentPosition();
         }
     }
 
@@ -37,5 +46,10 @@ public class ChangingScene : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
         Debug.Log("Load Scene");
+    }
+
+    private void ChangeCameraToDifferentPosition()
+    {
+        cameraGameObject.transform.position = camPosition.transform.position;
     }
 }
