@@ -18,7 +18,6 @@ public class DisableSmoothFunction : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             changeCameraPositionScript.isMoving = false;
-            smoothCameraScript.enabled = false;
         }
     }
 
@@ -26,7 +25,6 @@ public class DisableSmoothFunction : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            smoothCameraScript.enabled = true;
             changeCameraPositionScript.isMoving = true;
         }
     }

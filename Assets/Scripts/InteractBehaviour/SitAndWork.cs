@@ -18,19 +18,36 @@ public class SitAndWork : MonoBehaviour
     //Object to teleport
     [SerializeField] GameObject teleportPoint;
 
+    //Stop working need food
+    [SerializeField] GameObject invisWall;
+    [SerializeField] GameObject canvasNeedFood;
+
     private void Update()
     {
+        if (checkingState.haveBreakfast == true)
+        {
+            canvasNeedFood.SetActive(false);
+        }
+
         Vector3 targetPosition = teleportPoint.transform.position;
 
         if (Input.GetKeyDown(KeyCode.E) && isInteractable == true)
         {
-            checkingState.amountOfWorks++;
             playerCharacter.transform.position = targetPosition;
             playerMovmementScript.enabled= false;
             checkingPlayerScript.enabled= false;
             playerRb2D.simulated= false;
-            StartCoroutine(ChangeSceneAfterWait());
-            Debug.Log("Waiting...");
+            if(checkingState.haveBreakfast == true)
+            {
+                Debug.Log("Have food already. " + "Now waiting...");
+                checkingState.amountOfWorks++;
+                StartCoroutine(ChangeSceneAfterWait());
+            }
+            else
+            {
+                Debug.Log("No food yet...");
+                StartCoroutine(GrabSomeFood());
+            }
         }
     }
 
@@ -47,6 +64,16 @@ public class SitAndWork : MonoBehaviour
         {
             isInteractable = false;
         }
+    }
+
+    private IEnumerator GrabSomeFood()
+    {
+        yield return new WaitForSeconds(5f);
+        invisWall.SetActive(false);
+        playerMovmementScript.enabled = true;
+        checkingPlayerScript.enabled = true;
+        playerRb2D.simulated = true;
+        canvasNeedFood.SetActive(true);
     }
 
     private IEnumerator ChangeSceneAfterWait()
