@@ -14,5 +14,6 @@ public class DataReset : MonoBehaviour
         worldState.getOnCar = false;
         worldState.haveBreakfast= false;
         worldState.haveWallet = false;
+        worldState.onTime = false;
     }
 }

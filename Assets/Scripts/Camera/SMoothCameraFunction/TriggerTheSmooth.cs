@@ -6,12 +6,11 @@ public class TriggerTheSmooth : MonoBehaviour
 {
     [SerializeField] SmoothCameraFollowing smoothCameraFollow;
     [SerializeField] CameraTrigger cameraTriggerScript;
-    [SerializeField] PlayerInteract playerInteractScript;
 
     // Update is called once per frame
     void Update()
     {
-        if(cameraTriggerScript.triggerMoveRight == false && playerInteractScript.isInteractable == false)
+        if(cameraTriggerScript.triggerMoveRight == false)
         {
             StartCoroutine(TriggerTheScriptOrNot());
         }

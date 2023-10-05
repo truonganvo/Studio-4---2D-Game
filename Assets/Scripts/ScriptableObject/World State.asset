@@ -18,3 +18,4 @@ MonoBehaviour:
   getOnCar: 0
   haveBreakfast: 0
   haveWallet: 0
+  onTime: 0

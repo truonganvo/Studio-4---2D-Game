@@ -11,5 +11,8 @@ public class PlayerStateReset : MonoBehaviour
         worldState.haveClotheOn = false;
         worldState.haveKey = false;
         worldState.getOnCar = false;
+        worldState.haveBreakfast = false;
+        worldState.haveWallet = false;
+        worldState.onTime = false;
     }
 }

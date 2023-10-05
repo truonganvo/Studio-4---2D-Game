@@ -21,4 +21,5 @@ public class WorldState : ScriptableObject
 
     [Header("Wallet")]
     public bool haveWallet;
+    public bool onTime;
 }

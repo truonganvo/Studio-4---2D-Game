@@ -6,33 +6,51 @@ public class BossManTalk : MonoBehaviour
 {
     [SerializeField] WorldState checkWorldState;
 
-    //Wear uniform or not
+    //Car
     [SerializeField] GameObject canvas101;
     [SerializeField] GameObject canvas102;
 
-    //Doesn't travel by car
+    //Walk
     [SerializeField] GameObject canvas201;
 
+    //Transport
+    [SerializeField] GameObject canvas301;
+    [SerializeField] GameObject canvas302;
+
+    //Late and No Uniform?
     [SerializeField] GameObject canvas401;
 
-    // Update is called once per frame
     void Update()
     {
+        //Different variantion
+        //Check if either use car, transport or walk WITH clothes ON/OFF
+
+        //Car
         if(checkWorldState.haveClotheOn && checkWorldState.getOnCar)
         {
             canvas101.SetActive(true);
         }
-        else if (checkWorldState.haveClotheOn == false && checkWorldState.getOnCar == true)
+        else if (checkWorldState.haveClotheOn == false && checkWorldState.getOnCar)
         {
             canvas102.SetActive(true);
         }
-        else if (checkWorldState.getOnCar == false && checkWorldState.haveClotheOn == true)
+        //Walk
+        else if (checkWorldState.onTime == false && checkWorldState.haveClotheOn)
         {
             canvas201.SetActive(true);
         }
-        else if (checkWorldState.haveClotheOn == false && checkWorldState.getOnCar == false)
+        else if (checkWorldState.haveClotheOn == false && checkWorldState.onTime == false && checkWorldState.getOnCar == false)
         {
             canvas401.SetActive(true);
+        }
+        //Transport
+        else if (checkWorldState.onTime && checkWorldState.haveClotheOn)
+        {
+            canvas301.SetActive(true);
+        }
+        else if (checkWorldState.haveClotheOn == false && checkWorldState.onTime && checkWorldState.getOnCar == false)
+        {
+            canvas302.SetActive(true);
         }
     }
 }
