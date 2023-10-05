@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WorkLevel.unity
     guid: 8b21b80be25573640aeae51c1ddedd1a
+  - enabled: 1
+    path: Assets/Scenes/BedEnding.unity
+    guid: 5d016145fe6de1d439d3bf11d0e133ed
   m_configObjects: {}

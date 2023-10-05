@@ -5,47 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class Bed : MonoBehaviour
 {
-    [SerializeField] private PlayerInteract playerInteract;
-    [SerializeField] private int requiredInteractions = 5;
-    private int currentInteractions = 0;
+    [SerializeField] string levelName;
+    private bool isPlayerNear = false;
+    private int interactionCount = 0;
 
     private void Update()
     {
-        // Check for player interaction with the bed.
-        if (Input.GetKeyDown(KeyCode.E) && playerInteract.IsNearBed())
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNear)
         {
-            currentInteractions++;
-            PlayBedAnimation();
+            interactionCount++;
+            Debug.Log($"Interacted with bed {interactionCount} times.");
 
-            // Check if player has interacted the required number of times.
-            if (currentInteractions >= requiredInteractions)
+            if (interactionCount == 5)
             {
-                LoadNextScene();
+                Debug.Log("Loading the next scene after 5 interactions with the bed.");
+                SceneManager.LoadScene(levelName);
             }
         }
     }
 
-    private void PlayBedAnimation()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Your code for the bed animation goes here.
-        Debug.Log("Playing bed animation.");
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerNear = true;
+            Debug.Log("Player is near the bed.");
+        }
     }
 
-    private void LoadNextScene()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        // If you are using the built-in Unity Scene Management, you can use the following:
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-        Debug.Log("Loading next scene.");
-    }
-}
-
-public class PlayerInteract : MonoBehaviour
-{
-    // Dummy function. This should check if the player is close enough to the bed to interact.
-    public bool IsNearBed()
-    {
-        // Logic for checking if the player is near the bed.
-        return true; // Example return.
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerNear = false;
+            Debug.Log("Player has left the bed.");
+        }
     }
 }
