@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MoveCameraToPosition : MonoBehaviour
 {
-    //This script use have similar function as Change Camera Position Scripts but serve as second transition to a third level.
-    public Transform targetPosition; // The position the camera should move towards
-    public float moveSpeed = 5.0f;   // The speed at which the camera moves
-
     public bool isInsideTriggerZone = false;
+    [SerializeField] TriggerDifferentArea numbers;
+
+    [SerializeField] float moveNewTargetPositions = 0.0f;
+    [SerializeField] float moveBackTargetPositions = 0.0f;
+
+    [SerializeField] Camera cameraSize;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +21,21 @@ public class MoveCameraToPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInsideTriggerZone)
+        if (isInsideTriggerZone && numbers.assignNumber == 2)
         {
-            // Calculate the direction from the camera to the target position
-            Vector3 direction = targetPosition.position - transform.position;
+            Vector3 currentPosition = transform.position;
+            Vector3 targetPosition = new Vector3(moveNewTargetPositions, currentPosition.y, currentPosition.z);
 
-            // Normalize the direction to get a unit vector
-            direction.Normalize();
+            transform.position = targetPosition;
+            cameraSize.orthographicSize = 10;
+        }
+        else if (isInsideTriggerZone && numbers.assignNumber == 1)
+        {
+            Vector3 currentPosition = transform.position;
+            Vector3 targetPosition = new Vector3(moveBackTargetPositions, currentPosition.y, currentPosition.z);
 
-            // Move the camera towards the target position
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            transform.position = targetPosition;
+            cameraSize.orthographicSize = 5;
         }
     }
 }

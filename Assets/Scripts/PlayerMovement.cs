@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     //public Animator animator;
     //[SerializeField] AudioSource jumpingSound;
 
+    private Vector2 boxSize = new Vector2(0.1f, 1f);
+
     private enum MovementState { idle, running, jumping, falling}
     void Start()
     {
@@ -21,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         UpdateAnimation();
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            CheckInteraction();
+        }
     }
 
     private void UpdateAnimation()
@@ -63,4 +69,20 @@ public class PlayerMovement : MonoBehaviour
         //animator.SetInteger("state", (int)state);
     }
 
+    private void CheckInteraction() //This need the Interact2D script to work with
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, boxSize, 0, Vector2.zero);
+
+        if(hits.Length > 0)
+        {
+            foreach(RaycastHit2D hit in hits)
+            {
+                if(hit.transform.GetComponent<Interact2D>())
+                {
+                    hit.transform.GetComponent<Interact2D>().Interact();
+                    return;
+                }
+            }
+        }
+    }
 }

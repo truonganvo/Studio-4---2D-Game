@@ -5,10 +5,10 @@ using UnityEngine;
 public class SmoothCameraFollowing : MonoBehaviour
 {
     public Transform target; // The player's transform
-    public float smoothSpeed = 0.125f; // Smoothing factor for camera movement
-    public float xOffset = 0f; // Offset in X-axis
+    [SerializeField] float smoothSpeed = 0.125f; // Smoothing factor for camera movement
+    [SerializeField] float xOffset = 0f; // Offset in X-axis
 
-    [SerializeField] private bool isFollowing;
+    public bool isFollowing;
     private Vector3 velocity = Vector3.zero;
 
     void LateUpdate()

@@ -28,4 +28,15 @@ public class DisableSmoothFunction : MonoBehaviour
             changeCameraPositionScript.isMoving = true;
         }
     }
+
+    public void DisableOtherCameraScriptFunction()
+    {
+        changeCameraPositionScript.enabled= false;
+        smoothCameraScript.isFollowing = false;
+    }
+    public void EnableOtherCameraScriptFunction()
+    {
+        changeCameraPositionScript.enabled= true;
+        smoothCameraScript.isFollowing = true;
+    }
 }
