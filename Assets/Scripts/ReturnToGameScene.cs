@@ -4,15 +4,11 @@ using System.Collections;
 
 public class ReturnToGameScene : MonoBehaviour
 {
-    public float delay = 10f; // You can adjust this delay if needed
+    public float delay = 5f; // You can adjust this delay if needed
     public string sceneName = "GameScene"; // Name of the scene you want to load
 
-    void Start()
-    {
-        StartCoroutine(LoadSceneAfterDelay());
-    }
-
-    IEnumerator LoadSceneAfterDelay()
+    // This method is public so it can be called from the SceneFlashEffect script.
+    public IEnumerator LoadSceneAfterDelay()
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
