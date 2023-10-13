@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BedEnding.unity
     guid: 5d016145fe6de1d439d3bf11d0e133ed
+  - enabled: 1
+    path: Assets/Scenes/Park.unity
+    guid: b264c162e6b6a2e4387a013608c675ad
   m_configObjects: {}
