@@ -18,10 +18,10 @@ public class Bed : MonoBehaviour
             interactionCount++;
             Debug.Log($"Interacted with bed {interactionCount} times.");
 
-            // Start the flash effect coroutine.
-            StartCoroutine(FlashEffect(1.0f)); // 1.0f here represents the duration of the effect.
+            // Start the flash effect coroutine with a 5-second duration.
+            StartCoroutine(FlashEffect(5.0f));
 
-            if (interactionCount == 7)
+            if (interactionCount == 5)
             {
                 Debug.Log("Loading the next scene after 5 interactions with the bed.");
                 SceneManager.LoadScene(levelName);
@@ -36,7 +36,8 @@ public class Bed : MonoBehaviour
         // Set the time scale to 0, effectively pausing the game.
         Time.timeScale = 0;
 
-        float halfDuration = duration / 2;
+        // Calculate duration for the fade-in and fade-out effects.
+        float fadeDuration = duration / 2;
 
         // The initial color is fully transparent.
         Color initialColor = new Color(1f, 1f, 1f, 0f);
@@ -44,9 +45,9 @@ public class Bed : MonoBehaviour
         Color finalColor = new Color(1f, 1f, 1f, 1f);
 
         // Fade in (from 0 to 1 alpha).
-        for (float t = 0; t < halfDuration; t += Time.unscaledDeltaTime)
+        for (float t = 0; t < fadeDuration; t += Time.unscaledDeltaTime)
         {
-            float normalizedTime = t / halfDuration;
+            float normalizedTime = t / fadeDuration;
             flashImage.color = Color.Lerp(initialColor, finalColor, normalizedTime);
             yield return null;
         }
@@ -54,9 +55,9 @@ public class Bed : MonoBehaviour
         flashImage.color = finalColor;
 
         // Fade out (from 1 to 0 alpha).
-        for (float t = 0; t < halfDuration; t += Time.unscaledDeltaTime)
+        for (float t = 0; t < fadeDuration; t += Time.unscaledDeltaTime)
         {
-            float normalizedTime = t / halfDuration;
+            float normalizedTime = t / fadeDuration;
             flashImage.color = Color.Lerp(finalColor, initialColor, normalizedTime);
             yield return null;
         }
@@ -66,8 +67,6 @@ public class Bed : MonoBehaviour
         // Restore the original time scale, resuming the game.
         Time.timeScale = originalTimeScale;
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
