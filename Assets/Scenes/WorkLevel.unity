@@ -655,7 +655,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.13352585, y: 0.8807702}
@@ -9656,6 +9656,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1063313354 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2193280257070985843, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+  m_PrefabInstance: {fileID: 913347854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1063313355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 725317357613929291, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+  m_PrefabInstance: {fileID: 913347854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063313354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e9c4dce043d2b45b043243455b4f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1063313356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 164485250903042727, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+  m_PrefabInstance: {fileID: 913347854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063313354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fd80ddb65e38241bc7f234a1b30d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1063313357 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1610398669116500584, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+  m_PrefabInstance: {fileID: 913347854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1063313360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7765389589363266866, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+  m_PrefabInstance: {fileID: 913347854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1069255622
 GameObject:
   m_ObjectHideFlags: 0
@@ -9707,10 +9744,10 @@ MonoBehaviour:
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   levelName: HomeLevel
   isInteractable: 0
-  playerCharacter: {fileID: 0}
-  playerMovmementScript: {fileID: 0}
-  checkingPlayerScript: {fileID: 0}
-  playerRb2D: {fileID: 0}
+  playerCharacter: {fileID: 1063313354}
+  playerMovmementScript: {fileID: 1063313356}
+  checkingPlayerScript: {fileID: 1063313355}
+  playerRb2D: {fileID: 1063313357}
   teleportPoint: {fileID: 1731764001}
   invisWall: {fileID: 5953779}
   canvasNeedFood: {fileID: 1563607625}
@@ -13265,7 +13302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6edbcc4337277488a0960b6c18e78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1063313360}
   smoothSpeed: 0.125
   xOffset: 5.8
   isFollowing: 1
