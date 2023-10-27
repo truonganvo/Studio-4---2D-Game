@@ -13,7 +13,7 @@ public class Homeless : MonoBehaviour
 
     // Text messages
     [SerializeField] string firstText = "Thank you";
-    [SerializeField] string secondText = "Sorry for disturb";
+    [SerializeField] string secondText = "Sorry for disturbing";
 
     // Player interaction range
     [SerializeField] Collider2D interactionRange; // changed to Collider2D
@@ -49,10 +49,14 @@ public class Homeless : MonoBehaviour
 
     private void Update()
     {
-        if (isInteractable && checkingState.haveWallet && Input.GetKeyDown(KeyCode.E))
+        if (isInteractable && checkingState.haveBreakfast && Input.GetKeyDown(KeyCode.E))
         {
             hasInteracted = true;
             canvasText.text = firstText;
+
+            // Reset the "haveBreakfast" state in the WorldState script.
+            checkingState.haveBreakfast = false;
         }
     }
 }
+

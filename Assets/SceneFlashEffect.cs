@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // You need to add this for scene management.
 
 public class SceneFlashEffect : MonoBehaviour
 {
     [SerializeField] private Image flashImage; // Ensure you set this reference in the Inspector.
-    [SerializeField] private ReturnToGameScene returnToGameScene; // Reference to the other script.
+    [SerializeField] private string sceneName = "GameScene"; // Name of the scene you want to load
 
     private float originalTimeScale;
 
@@ -60,14 +61,7 @@ public class SceneFlashEffect : MonoBehaviour
         // Restore the original time scale, resuming the game.
         Time.timeScale = originalTimeScale;
 
-        // Start loading the scene after the flash effect is complete.
-        if (returnToGameScene != null)
-        {
-            yield return StartCoroutine(returnToGameScene.LoadSceneAfterDelay());
-        }
-        else
-        {
-            Debug.LogWarning("ReturnToGameScene reference not set on SceneFlashEffect.");
-        }
+        // Load the scene after the flash effect is complete.
+        SceneManager.LoadScene(sceneName);
     }
 }
