@@ -17,5 +17,6 @@ MonoBehaviour:
   haveKey: 0
   getOnCar: 0
   haveBreakfast: 0
+  foodGivenToHomeless: 0
   haveWallet: 0
   onTime: 0

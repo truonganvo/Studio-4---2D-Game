@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStateReset : MonoBehaviour
 {
     [SerializeField] WorldState worldState;
+
     // Start is called before the first frame update
     void Start()
+    {
+        ResetPlayerState();
+    }
+
+    private void ResetPlayerState()
     {
         worldState.haveClotheOn = false;
         worldState.haveKey = false;
@@ -14,5 +18,8 @@ public class PlayerStateReset : MonoBehaviour
         worldState.haveBreakfast = false;
         worldState.haveWallet = false;
         worldState.onTime = false;
+
+        // Reset homeless NPC interaction state
+        worldState.foodGivenToHomeless = 0;
     }
 }
