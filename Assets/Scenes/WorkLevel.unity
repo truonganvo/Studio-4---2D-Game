@@ -7836,6 +7836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1610398669116500584, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2193280257070985843, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9450,6 +9454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   levelName: HomeLevel
+  endingScene: {fileID: 102900000, guid: 709241abe64f585429a8f0077a6be2c4, type: 3}
   isInteractable: 0
   playerCharacter: {fileID: 1063313354}
   playerMovmementScript: {fileID: 1063313356}
@@ -16434,7 +16439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 98071748}
   textScore: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
-  numberOfDay: 0
   score: 0
 --- !u!114 &1901537580
 MonoBehaviour:

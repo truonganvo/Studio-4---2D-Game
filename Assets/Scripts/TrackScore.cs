@@ -8,15 +8,12 @@ public class TrackScore : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] WorldState textScore;
 
-
-
-    public int numberOfDay = 0;
     public int score = 0;
 
     private void Update()
     {
-        numberOfDay = textScore.amountOfWorks;
-        score = numberOfDay;
+        // Get the number of days worked from the WorldState script
+        score = textScore.amountOfWorks;
         scoreText.text = score.ToString();
     }
 }

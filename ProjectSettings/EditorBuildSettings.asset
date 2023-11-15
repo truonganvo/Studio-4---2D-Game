@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Park.unity
     guid: b264c162e6b6a2e4387a013608c675ad
+  - enabled: 1
+    path: Assets/Scenes/WorkEnding.unity
+    guid: 709241abe64f585429a8f0077a6be2c4
   m_configObjects: {}

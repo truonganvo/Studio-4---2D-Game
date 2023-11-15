@@ -32,4 +32,22 @@ public class WorldState : ScriptableObject
             foodGivenToHomeless++; // Increment the food given counter
         }
     }
+
+    public void CheckAndIncrementWorkCount()
+    {
+        // Check if the player has the uniform on, has the key, and gets on the car
+        if (haveClotheOn && haveKey && getOnCar)
+        {
+            amountOfWorks++;
+        }
+        // Check if the player has the uniform on, has the wallet, and is on time
+        else if (haveClotheOn && haveWallet && onTime)
+        {
+            amountOfWorks++;
+        }
+    }
+
 }
+
+
+

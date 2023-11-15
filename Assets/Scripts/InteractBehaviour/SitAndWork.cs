@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,10 @@ public class SitAndWork : MonoBehaviour
 {
     [SerializeField] WorldState checkingState;
     [SerializeField] string levelName;
+    [SerializeField] SceneAsset endingScene;
     [SerializeField] bool isInteractable;
+
+    
 
     //Player
     [SerializeField] GameObject playerCharacter;
@@ -28,6 +32,33 @@ public class SitAndWork : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && isInteractable == true)
         {
+            // Check if the player meets the work conditions
+            bool canWork = false;
+
+            // Check if the player has the uniform on, has the key, and gets on the car
+            if (checkingState.haveClotheOn && checkingState.haveKey && checkingState.getOnCar)
+            {
+                canWork = true;
+            }
+            // Check if the player has the uniform on, has the wallet, and is on time
+            else if (checkingState.haveClotheOn && checkingState.haveWallet && checkingState.onTime)
+            {
+                canWork = true;
+            }
+
+            // If the player meets the work conditions, increment the number of days worked
+            if (canWork)
+            {
+                checkingState.amountOfWorks++;
+
+                // Check if amountOfWorks is equal to 5 to load the assigned ending scene
+                if (checkingState.amountOfWorks == 5)
+                {
+                    // Load the assigned ending scene
+                    SceneManager.LoadScene(endingScene.name);
+                }
+            }
+
             playerCharacter.transform.position = targetPosition;
             playerMovmementScript.enabled = false;
             checkingPlayerScript.enabled = false;
@@ -36,6 +67,7 @@ public class SitAndWork : MonoBehaviour
         }
     }
 
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -43,6 +75,7 @@ public class SitAndWork : MonoBehaviour
             isInteractable = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
