@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.12, y: 0.9}
+  m_AnchoredPosition: {x: 0.12, y: 1.048}
   m_SizeDelta: {x: 4.9139, y: 0.9558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6043909041118383631
@@ -129,7 +129,7 @@ RectTransform:
   m_GameObject: {fileID: 1008631901871691847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2125, y: 1.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8019512661854859008}
@@ -137,8 +137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8194e-11, y: -0.0000099242}
-  m_SizeDelta: {x: 4.9139, y: 0.9558}
+  m_AnchoredPosition: {x: -0.000000029802, y: 1.35}
+  m_SizeDelta: {x: 6.8609, y: 1.577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8461111397080066934
 CanvasRenderer:
@@ -212,8 +212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000090191, y: -0.00000011921}
-  m_SizeDelta: {x: 4.9139, y: 0.9558}
+  m_AnchoredPosition: {x: 0.000015393, y: -0.000000059605}
+  m_SizeDelta: {x: 6.8609, y: 1.577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4021327042317332613
 CanvasRenderer:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.06193161, y: 0.18673086, z: 0, w: 0}
+  m_margin: {x: 0.087548494, y: 0.18673086, z: 0.07685304, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 2247680883620044576}
   m_Layer: 0
   m_Name: Homless
-  m_TagString: Untagged
+  m_TagString: Homeless
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +341,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -39.89, y: -8.13, z: 0}
-  m_LocalScale: {x: 2.5436797, y: 3.3669584, z: 1}
+  m_LocalScale: {x: 1.5262079, y: 2.0201752, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3594970475387899226}
@@ -457,12 +457,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff9993e00eb6bd499df22d4ad5cc379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
-  isInteractable: 0
-  canvasText: {fileID: 3296936900700588851}
-  firstText: Thank you
-  secondText: Sorry for disturb
-  interactionRange: {fileID: 7926803195818503570}
+  worldState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
+  dialogueText: {fileID: 3296936900700588851}
+  moveSpeed: 2
+  moveTarget: {fileID: 0}
+  portal: {fileID: 0}
+  newSceneName: ParkEnding
 --- !u!1 &7949533611664479460
 GameObject:
   m_ObjectHideFlags: 0
