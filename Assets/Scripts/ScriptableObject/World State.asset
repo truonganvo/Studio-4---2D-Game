@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61f43de072f494469d58d4b49bef673, type: 3}
   m_Name: World State
   m_EditorClassIdentifier: 
-  amountOfWorks: 0
-  haveClotheOn: 0
+  amountOfWorks: 5
+  haveClotheOn: 1
   haveKey: 0
   getOnCar: 0
   haveBreakfast: 0

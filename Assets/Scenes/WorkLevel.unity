@@ -9592,7 +9592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   levelName: HomeLevel
-  endingScene: {fileID: 102900000, guid: 709241abe64f585429a8f0077a6be2c4, type: 3}
+  endingScene: WorkEnding
   isInteractable: 0
   playerCharacter: {fileID: 1063313354}
   playerMovmementScript: {fileID: 1063313356}

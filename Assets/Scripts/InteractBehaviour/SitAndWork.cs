@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SitAndWork : MonoBehaviour
 {
     [SerializeField] WorldState checkingState;
-    [SerializeField] string levelName;
-    [SerializeField] SceneAsset endingScene;
+    [SerializeField] string levelName;// Use a string field to specify the scene name
+    [SerializeField] string endingScene;
     [SerializeField] bool isInteractable;
-
-
 
     //Player
     [SerializeField] GameObject playerCharacter;
@@ -56,8 +53,8 @@ public class SitAndWork : MonoBehaviour
                 // Check if amountOfWorks is equal to 5 to load the assigned ending scene
                 if (checkingState.amountOfWorks == 5)
                 {
-                    // Load the assigned ending scene
-                    SceneManager.LoadScene(endingScene.name);
+                    // Load the assigned ending scene using the specified scene name
+                    SceneManager.LoadScene(levelName);
                 }
             }
 
@@ -70,7 +67,6 @@ public class SitAndWork : MonoBehaviour
             StartCoroutine(ShowImageAndChangeScene());
         }
     }
-
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -99,6 +95,6 @@ public class SitAndWork : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // Load the assigned ending scene
-        SceneManager.LoadScene(endingScene.name);
+        SceneManager.LoadScene(endingScene);
     }
 }
