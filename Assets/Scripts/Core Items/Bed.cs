@@ -8,29 +8,33 @@ public class Bed : MonoBehaviour
 {
     [SerializeField] string levelName;
     [SerializeField] Image flashImage;
+    [SerializeField] GameObject canvasWithImage; // Reference to the canvas with the image
+
     private bool isPlayerNear = false;
     private int interactionCount = 0;
+    private bool isFlashActive = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerNear)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerNear && !isFlashActive)
         {
             interactionCount++;
             Debug.Log($"Interacted with bed {interactionCount} times.");
 
-            // Start the flash effect coroutine with a 5-second duration.
-            StartCoroutine(FlashEffect(5.0f));
+            // Start the flash effect coroutine with a 2.5-second duration.
+            StartCoroutine(FlashEffect(2f));
 
-            if (interactionCount == 5)
+            if (interactionCount == 3)
             {
-                Debug.Log("Loading the next scene after 5 interactions with the bed.");
-                SceneManager.LoadScene(levelName);
+                StartCoroutine(ShowImageAndChangeScene());
             }
         }
     }
 
     private IEnumerator FlashEffect(float duration)
     {
+        isFlashActive = true;
+
         // Save the original time scale.
         float originalTimeScale = Time.timeScale;
         // Set the time scale to 0, effectively pausing the game.
@@ -54,6 +58,9 @@ public class Bed : MonoBehaviour
 
         flashImage.color = finalColor;
 
+        // Wait for the duration of the flash effect.
+        yield return new WaitForSecondsRealtime(duration);
+
         // Fade out (from 1 to 0 alpha).
         for (float t = 0; t < fadeDuration; t += Time.unscaledDeltaTime)
         {
@@ -66,6 +73,8 @@ public class Bed : MonoBehaviour
 
         // Restore the original time scale, resuming the game.
         Time.timeScale = originalTimeScale;
+
+        isFlashActive = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -84,5 +93,19 @@ public class Bed : MonoBehaviour
             isPlayerNear = false;
             Debug.Log("Player has left the bed.");
         }
+    }
+
+    private IEnumerator ShowImageAndChangeScene()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        // Enable the canvas with the image
+        canvasWithImage.SetActive(true);
+
+        // Wait for another 5 seconds (you can adjust this duration)
+        yield return new WaitForSeconds(1.5f);
+
+        // Load the ending scene
+        SceneManager.LoadScene(levelName);
     }
 }

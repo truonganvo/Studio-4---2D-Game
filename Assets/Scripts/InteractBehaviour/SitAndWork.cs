@@ -11,7 +11,7 @@ public class SitAndWork : MonoBehaviour
     [SerializeField] SceneAsset endingScene;
     [SerializeField] bool isInteractable;
 
-    
+
 
     //Player
     [SerializeField] GameObject playerCharacter;
@@ -23,8 +23,10 @@ public class SitAndWork : MonoBehaviour
     [SerializeField] GameObject teleportPoint;
 
     //Stop working need food
-    [SerializeField] GameObject invisWall;
-    [SerializeField] GameObject canvasNeedFood;
+    [SerializeField] GameObject canvasWithImage;
+    [SerializeField] float imageDisplayDelay = 0.5f;
+
+    private bool hasInteracted = false;
 
     private void Update()
     {
@@ -59,11 +61,13 @@ public class SitAndWork : MonoBehaviour
                 }
             }
 
+            hasInteracted = true;
             playerCharacter.transform.position = targetPosition;
             playerMovmementScript.enabled = false;
             checkingPlayerScript.enabled = false;
             playerRb2D.simulated = false;
-            StartCoroutine(ChangeSceneAfterWait());
+
+            StartCoroutine(ShowImageAndChangeScene());
         }
     }
 
@@ -84,9 +88,17 @@ public class SitAndWork : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeSceneAfterWait()
+    private IEnumerator ShowImageAndChangeScene()
     {
-        yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(levelName);
+        yield return new WaitForSeconds(imageDisplayDelay);
+
+        // Enable the canvas with the image
+        canvasWithImage.SetActive(true);
+
+        // Wait for a few seconds (you can adjust this duration)
+        yield return new WaitForSeconds(1.5f);
+
+        // Load the assigned ending scene
+        SceneManager.LoadScene(endingScene.name);
     }
 }

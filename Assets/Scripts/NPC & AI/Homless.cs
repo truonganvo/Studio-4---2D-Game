@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Homeless : MonoBehaviour
@@ -9,8 +10,10 @@ public class Homeless : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f; // Speed at which the homeless character moves
     [SerializeField] private Transform moveTarget; // The target position to move to after being fed twice
     [SerializeField] private string newSceneName; // The name of the new scene to load
+    [SerializeField] private GameObject canvasWithImage; // Assign this in the Inspector
 
     private bool isPlayerInRange = false;
+    private bool hasReachedTarget = false;
 
     private void Start()
     {
@@ -24,8 +27,7 @@ public class Homeless : MonoBehaviour
             ReceiveItem();
         }
 
-        // Check if the homeless character should move
-        if (worldState.foodGivenToHomeless >= 2 && moveTarget != null)
+        if (worldState.foodGivenToHomeless >= 2 && moveTarget != null && !hasReachedTarget)
         {
             MoveToTarget();
         }
@@ -49,7 +51,6 @@ public class Homeless : MonoBehaviour
 
     private void UpdateDialogue()
     {
-        // Check how many times the homeless has been given food
         switch (worldState.foodGivenToHomeless)
         {
             case 0:
@@ -71,8 +72,8 @@ public class Homeless : MonoBehaviour
     {
         if (worldState.haveBreakfast)
         {
-            worldState.GiveFoodToHomeless(); // Handle the logic of giving food
-            UpdateDialogue(); // Update the dialogue text
+            worldState.GiveFoodToHomeless();
+            UpdateDialogue();
         }
         else
         {
@@ -82,17 +83,27 @@ public class Homeless : MonoBehaviour
 
     private void MoveToTarget()
     {
-        // Calculate the direction to move
         Vector3 moveDirection = (moveTarget.position - transform.position).normalized;
-
-        // Move the character towards the target
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Check if the character has reached the target
         if (Vector3.Distance(transform.position, moveTarget.position) < 0.1f)
         {
-            // Load the new scene when the target is reached
-            SceneManager.LoadScene(newSceneName);
+            hasReachedTarget = true;
+            StartCoroutine(ShowImageAndChangeScene());
         }
+    }
+
+    private IEnumerator ShowImageAndChangeScene()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        // Enable the canvas with the image
+        canvasWithImage.SetActive(true);
+
+        // Wait for a few seconds (you can adjust this duration)
+        yield return new WaitForSeconds(1.5f);
+
+        // Load the new scene
+        SceneManager.LoadScene(newSceneName);
     }
 }
