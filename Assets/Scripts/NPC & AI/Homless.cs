@@ -59,7 +59,7 @@ public class Homeless : MonoBehaviour
                 dialogueText.text = "I'm still hungry, could you find more food?";
                 break;
             case 2:
-                dialogueText.text = "I'm full now, thank you! What can I do for you?";
+                dialogueText.text = "I'm full now, Follow Me";
                 break;
             default:
                 dialogueText.text = "You've already given me more than enough!";

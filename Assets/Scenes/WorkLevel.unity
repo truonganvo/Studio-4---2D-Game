@@ -3347,7 +3347,7 @@ GameObject:
   - component: {fileID: 364700296}
   - component: {fileID: 364700295}
   - component: {fileID: 364700297}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Door...
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3454,7 +3454,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0387682, y: 0.00447309}
+  m_Offset: {x: -0.03807327, y: 0.00447309}
   m_SpriteTilingProperty:
     border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
     pivot: {x: 0.5, y: 0.5}
@@ -3465,7 +3465,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0824636, y: 2.4949524}
+  m_Size: {x: 0.04105324, y: 2.4949524}
   m_EdgeRadius: 0
 --- !u!1 &365918425
 GameObject:
@@ -7844,6 +7844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5533986898297134445, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7765389589363266866, guid: 0bb0d0c6949ac344093258eb56f59b1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.8726387
@@ -8932,7 +8936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1020145080}
   - component: {fileID: 1020145081}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17877,9 +17881,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1916519351
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
