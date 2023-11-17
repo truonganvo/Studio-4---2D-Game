@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SitAndWork : MonoBehaviour
 {
     [SerializeField] WorldState checkingState;
-    [SerializeField] string levelName;// Use a string field to specify the scene name
+    [SerializeField] string levelName;
     [SerializeField] string endingScene;
     [SerializeField] bool isInteractable;
+
+
 
     //Player
     [SerializeField] GameObject playerCharacter;
@@ -21,9 +24,7 @@ public class SitAndWork : MonoBehaviour
 
     //Stop working need food
     [SerializeField] GameObject canvasWithImage;
-    [SerializeField] float imageDisplayDelay = 0.5f;
-
-    private bool hasInteracted = false;
+   
 
     private void Update()
     {
@@ -53,20 +54,21 @@ public class SitAndWork : MonoBehaviour
                 // Check if amountOfWorks is equal to 5 to load the assigned ending scene
                 if (checkingState.amountOfWorks == 5)
                 {
-                    // Load the assigned ending scene using the specified scene name
-                    SceneManager.LoadScene(levelName);
+                    // Load the assigned ending scene
+                    SceneManager.LoadScene(endingScene);
                 }
             }
 
-            hasInteracted = true;
             playerCharacter.transform.position = targetPosition;
             playerMovmementScript.enabled = false;
             checkingPlayerScript.enabled = false;
             playerRb2D.simulated = false;
+            StartCoroutine(ChangeSceneAfterWait());
 
             StartCoroutine(ShowImageAndChangeScene());
         }
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -84,17 +86,21 @@ public class SitAndWork : MonoBehaviour
         }
     }
 
+    private IEnumerator ChangeSceneAfterWait()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(levelName);
+    }
+
     private IEnumerator ShowImageAndChangeScene()
     {
-        yield return new WaitForSeconds(imageDisplayDelay);
+       
 
         // Enable the canvas with the image
         canvasWithImage.SetActive(true);
 
         // Wait for a few seconds (you can adjust this duration)
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(5f);
 
-        // Load the assigned ending scene
-        SceneManager.LoadScene(endingScene);
     }
 }
