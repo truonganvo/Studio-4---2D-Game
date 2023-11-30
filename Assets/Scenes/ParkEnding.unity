@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 297620475}
   - component: {fileID: 297620474}
-  - component: {fileID: 297620476}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -190,20 +189,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &297620476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297620473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824e5577937960746b2209d0be0d64ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 5
-  sceneName: HomeLevel
 --- !u!1 &309874659
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +433,7 @@ GameObject:
   - component: {fileID: 1904025712}
   - component: {fileID: 1904025711}
   - component: {fileID: 1904025710}
+  - component: {fileID: 1904025714}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -538,6 +524,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1904025714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904025709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17b708f41053654999751df484ff60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayInSeconds: 7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

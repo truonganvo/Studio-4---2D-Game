@@ -307,11 +307,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 369931497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824e5577937960746b2209d0be0d64ea, type: 3}
+  m_Script: {fileID: 11500000, guid: a17b708f41053654999751df484ff60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
-  sceneName: GameScene
+  delayInSeconds: 26
 --- !u!1 &929099592
 GameObject:
   m_ObjectHideFlags: 0
