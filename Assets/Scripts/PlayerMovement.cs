@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿using GameAnalyticsSDK;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
+
+    
 {
+    [Header("Analytics To Track")]
+    [SerializeField] private int numberInteract = 0;
+
+
     public float MovementSpeed = 1f;
     public float JumpForce = 1f;
 
@@ -25,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
         UpdateAnimation();
         if (Input.GetKeyDown(KeyCode.E))
         {
+            numberInteract++;
             CheckInteraction();
+            GameAnalytics.NewDesignEvent("PlayerPressE", numberInteract);
         }
     }
 

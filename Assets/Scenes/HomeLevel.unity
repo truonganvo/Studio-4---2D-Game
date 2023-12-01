@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 0
   hasPickUp: 0
+  itemID: 1
 --- !u!114 &68732583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   playerInteract: {fileID: 68732582}
+  pickClothes: 0
 --- !u!1 &83569098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac058753ef58f147800ce638e9b00fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSleep: 0
+  getBedEnding: 0
   levelName: BedEnding
   flashImage: {fileID: 510933270}
   canvasWithImage: {fileID: 1214369796}
@@ -3353,6 +3357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 0
   hasPickUp: 0
+  itemID: 4
 --- !u!114 &998138139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,6 +3372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   playerInteract: {fileID: 998138138}
+  pickWallet: 0
 --- !u!61 &998138140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3498,6 +3504,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1054705958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 165288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_Name
+      value: GameAnalytics
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465288, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9d27d37bab3c447b8eb7a2a6756e952, type: 3}
 --- !u!1 &1092627093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   playerInteract: {fileID: 1092627096}
+  pickKey: 0
 --- !u!114 &1092627096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,6 +3625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 0
   hasPickUp: 0
+  itemID: 2
 --- !u!61 &1092627097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4776,6 +4841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 0
   hasPickUp: 0
+  itemID: 0
 --- !u!114 &1571983716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4790,6 +4856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingState: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   playerInteract: {fileID: 1571983715}
+  pickBuger: 3
 --- !u!58 &1571983717
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5897,3 +5964,4 @@ SceneRoots:
   - {fileID: 647619121}
   - {fileID: 1595489239}
   - {fileID: 24831477}
+  - {fileID: 1054705958}

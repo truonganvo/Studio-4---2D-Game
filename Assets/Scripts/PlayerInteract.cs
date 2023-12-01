@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class PlayerInteract : MonoBehaviour
 {
     public bool isInteractable;
     public bool hasPickUp;
+
+    public int itemID = 0;
 
     private void Update()
     {
@@ -37,5 +40,6 @@ public class PlayerInteract : MonoBehaviour
     {
         hasPickUp = true;
         Destroy(gameObject, 0.20f);
+        GameAnalytics.NewDesignEvent("Player pick up", itemID);
     }
 }

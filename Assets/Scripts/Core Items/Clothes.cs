@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using GameAnalyticsSDK;
 using UnityEngine;
 
 public class Clothes : MonoBehaviour 
@@ -8,6 +9,7 @@ public class Clothes : MonoBehaviour
     [SerializeField] WorldState checkingState;
     [SerializeField] PlayerInteract playerInteract;
 
+  
 
     private void Update()
     {
@@ -15,6 +17,8 @@ public class Clothes : MonoBehaviour
         {
             Debug.Log("IT DIES");
             checkingState.haveClotheOn = true;
+           
+
         }
     }
 }

@@ -1,3 +1,4 @@
+using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Key : MonoBehaviour
     [SerializeField] WorldState checkingState;
     [SerializeField] PlayerInteract playerInteract;
 
+    
 
     private void Update()
     {
@@ -15,5 +17,6 @@ public class Key : MonoBehaviour
             Debug.Log("IT DIES");
             checkingState.haveKey = true;
         }
+            
     }
 }

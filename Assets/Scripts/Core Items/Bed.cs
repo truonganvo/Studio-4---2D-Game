@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class Bed : MonoBehaviour
 {
+    [Header("Analytics To Track")]
+    [SerializeField] private int playerSleep = 0;
+    [SerializeField] private int getBedEnding = 0;
+
+
+
     [SerializeField] string levelName;
     [SerializeField] Image flashImage;
     [SerializeField] GameObject canvasWithImage; // Reference to the canvas with the image
@@ -28,6 +35,9 @@ public class Bed : MonoBehaviour
             {
                 StartCoroutine(ShowImageAndChangeScene());
             }
+
+            playerSleep++;
+            GameAnalytics.NewDesignEvent("PlayerGetSleep", playerSleep);
         }
     }
 
@@ -107,5 +117,9 @@ public class Bed : MonoBehaviour
 
         // Load the ending scene
         SceneManager.LoadScene(levelName);
+        getBedEnding++;
+        GameAnalytics.NewDesignEvent("BedEnding", getBedEnding);
+
+
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1610398669116500584}
   - component: {fileID: 164485250903042727}
   - component: {fileID: 725317357613929291}
+  - component: {fileID: 7333688650458363983}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,6 +190,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkingPlayer: {fileID: 11400000, guid: 4f73d18512b43f74fb94f63ea341b416, type: 2}
   clothes: {fileID: 8861819161270736057}
+--- !u!114 &7333688650458363983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193280257070985843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da463957fed1ce24fb9c1ebf8ed8d754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3104868633079348615
 GameObject:
   m_ObjectHideFlags: 0
