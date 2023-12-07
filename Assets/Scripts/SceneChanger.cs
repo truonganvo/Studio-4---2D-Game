@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger: MonoBehaviour
 {
     public float delayInSeconds = 5f; // Change this to the desired delay
-
+    public string sceneName = "GameScene"; // Name of the scene you want to load
     float timer = 0f;
 
     void Update()
@@ -16,7 +16,7 @@ public class SceneChanger: MonoBehaviour
         if (timer >= delayInSeconds)
         {
             // Change "YourSceneName" to the actual name of the scene you want to load
-            SceneManager.LoadScene("HomeLevel");
+           SceneManager.LoadScene(sceneName);
         }
     }
 }

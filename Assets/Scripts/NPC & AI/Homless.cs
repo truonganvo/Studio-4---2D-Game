@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
+
 
 public class Homeless : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class Homeless : MonoBehaviour
     private bool isPlayerInRange = false;
     private bool hasReachedTarget = false;
 
+    [Header("Analytics To Track")]
+    [SerializeField] private int getHomelessEnding = 0;
     private void Start()
     {
         UpdateDialogue();
@@ -105,5 +109,7 @@ public class Homeless : MonoBehaviour
 
         // Load the new scene
         SceneManager.LoadScene(newSceneName);
+        getHomelessEnding++;
+        GameAnalytics.NewDesignEvent("ParkEnding", getHomelessEnding);
     }
 }

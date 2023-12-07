@@ -11,13 +11,14 @@ public class Clothes : MonoBehaviour
 
   
 
+
     private void Update()
     {
         if(playerInteract.hasPickUp)
         {
             Debug.Log("IT DIES");
             checkingState.haveClotheOn = true;
-           
+            
 
         }
     }

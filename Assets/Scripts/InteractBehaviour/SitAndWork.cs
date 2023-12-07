@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
+
 
 public class SitAndWork : MonoBehaviour
 {
+    [Header("Analytics To Track")]
+    [SerializeField] private int getWorkEnding = 0;
+
+
     [SerializeField] WorldState checkingState;
     [SerializeField] string levelName;
     [SerializeField] string endingScene;
@@ -24,7 +30,14 @@ public class SitAndWork : MonoBehaviour
 
     //Stop working need food
     [SerializeField] GameObject canvasWithImage;
-   
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     private void Update()
     {
@@ -90,6 +103,9 @@ public class SitAndWork : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(levelName);
+        audioManager.PlaySFX(audioManager.changeScene);
+        getWorkEnding++;
+        GameAnalytics.NewDesignEvent("WorkEnding", getWorkEnding);
     }
 
     private IEnumerator ShowImageAndChangeScene()

@@ -13,6 +13,13 @@ public class ChangingScene : MonoBehaviour
     [SerializeField] Camera cameraGameObject;
     [SerializeField] Transform camPosition;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Update()
     {
         if (nextScene && Input.GetKeyDown(KeyCode.E) && !changeToDifferentPosition)
@@ -46,6 +53,7 @@ public class ChangingScene : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
         Debug.Log("Load Scene");
+        audioManager.PlaySFX(audioManager.changeScene);
     }
 
     private void ChangeCameraToDifferentPosition()

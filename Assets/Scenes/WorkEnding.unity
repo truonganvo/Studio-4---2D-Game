@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayInSeconds: 26
+  sceneName: HomeLevel
 --- !u!1 &929099592
 GameObject:
   m_ObjectHideFlags: 0

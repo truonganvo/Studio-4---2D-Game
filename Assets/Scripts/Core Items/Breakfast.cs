@@ -8,7 +8,7 @@ public class Breakfast : MonoBehaviour
     [SerializeField] WorldState checkingState;
     [SerializeField] PlayerInteract playerInteract;
 
-    
+  
 
 
     private void Update()
